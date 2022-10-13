@@ -1,4 +1,4 @@
-@All
+
 Feature: Amazon Search
 
   @gp1

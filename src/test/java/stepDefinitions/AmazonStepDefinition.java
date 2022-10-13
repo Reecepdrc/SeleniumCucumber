@@ -14,7 +14,7 @@ public class AmazonStepDefinition {
     AmazonPage amazonPage=new AmazonPage();
     @Given("kullanici amazon sayfasina gider")
     public void kullaniciAmazonSayfasinaGider() {
-        Driver.getDriver().get(ConfigReader.getProperty("amznUrl"));
+        Driver.getDriver().get(ConfigReader.getProperty("amazonUrl"));
     }
 
     @Then("kullanici Nutella icin arama yapar")
@@ -129,5 +129,15 @@ public class AmazonStepDefinition {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @And("sayfayi kapatirayi kapatir")
+    public void sayfayiKapatirayiKapatir() {
+        Driver.closeDriver();
+    }
+
+    @Given("kullanici {string} sayfasinda")
+    public void kullaniciSayfasinda(String istenenUrl) {
+        Driver.getDriver().get(istenenUrl);
     }
 }
